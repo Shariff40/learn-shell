@@ -23,8 +23,8 @@ if [ $user_id -ne 0 ]; then
 
 
    
-    dnf install mysql-y
+    dnf install mysql -y
     validate $? "mysql installation"
 
 
-    echo "still proceeded"
+    echo "still proceeded...."
