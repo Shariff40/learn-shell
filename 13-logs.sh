@@ -7,18 +7,18 @@ logs_file="${logs_folder}/${0}.log"
 if [ $user_id -ne 0 ]; then
     echo "please run this script with sudo access"
    exit 1
-    fi 
+fi 
 
-    mkdir -p $logs_folder
+mkdir -p $logs_folder
 
-    echo "script execution started at $(date + "%F %T")"
+echo "script started exicution at $(date +"%F %T")"
 
     validate(){
-    if [$1 -eq 0]; then
+    if [ $1 -ne 0]; then
         echo "${2}.. Failed" | tee -a $logs_file
         exit 1
     else
-        echo "${2}.. SUCCESS" | log -a $logs_file
+        echo "${2}.. SUCCESS" | tee -a $logs_file
         fi
     }
 
@@ -32,7 +32,4 @@ if [ $user_id -ne 0 ]; then
     dnf install mysql -y &>> $logs_file 
     validate $? "mysql installation"
 
-    echo "script execution completed at $(date + "%F %T")"
-
-
-    echo "still proceeded...."
+    echo "script execution completed at $(date +"%F %T")"
