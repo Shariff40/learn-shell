@@ -11,7 +11,7 @@ if [ $user_id -ne 0 ]; then
 
     mkdir -p $logs_folder
 
-    echo "script execution started at $(date + "%F %T"}"
+    echo "script execution started at $(date + "%F %T")"
 
     validate(){
     if [$1 -eq 0]; then
@@ -32,7 +32,7 @@ if [ $user_id -ne 0 ]; then
     dnf install mysql -y &>> $logs_file 
     validate $? "mysql installation"
 
-    echo "script execution completed at $(date + "%F %T"}"
+    echo "script execution completed at $(date + "%F %T")"
 
 
     echo "still proceeded...."
